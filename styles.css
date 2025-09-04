@@ -1,0 +1,70 @@
+body {
+  font-family: "Arial", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #222;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  padding: 1.5rem 0;
+  background-color: #cce7ff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #0055a5;
+}
+
+/* Main Section */
+main {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+/* Exercise Section */
+.exercise {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Aufgabe Text & Input */
+.exercise p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#answer {
+  width: 60px;
+  padding: 0.5rem;
+  font-size: 1.3rem;
+  text-align: center;
+  border: 2px solid #0055a5;
+  border-radius: 8px;
+}
+
+/* Buttons */
+button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1.2rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #0055a5;
+  color: #fff;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #003f7f;
+}
