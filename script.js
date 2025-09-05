@@ -24,7 +24,7 @@ $(document).ready(function(){
     $('#numA').text(a);
     $('#numB').text(b);
     $('#answer').val('');
-    $('#feedback').removeClass('show').text('');
+    $('#feedback').removeClass('show success error').text('');
   }
 
   // Generate first exercise
@@ -37,7 +37,14 @@ $(document).ready(function(){
   });
 
   $('#checkAnswer').click(function() {
-    const answer = Number($('#answer').val());
+    const answerStr = $('#answer').val().trim();
+
+    if(answerStr === "") {
+      $('#feedback').removeClass('show success error').text('');
+      return;
+    }
+
+    const answer = Number(answerStr);
     const a = Number($('#numA').text());
     const b = Number($('#numB').text());
     
