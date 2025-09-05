@@ -1,14 +1,30 @@
+const successMessages = [
+  "Super!",
+  "Klasse gemacht!",
+  "Richtig gut!",
+  "Bravo!",
+  "Toll gelöst!",
+  "Genau richtig!",
+  "Du hast es drauf!",
+  "Fantastisch!",
+  "Sehr gut!",
+  "Spitze!"
+];
+
+function getRandomSuccessMessage() {
+  const index = Math.floor(Math.random() * successMessages.length);
+  return successMessages[index];
+}
+
 $(document).ready(function(){
   function newExercise() {
     const a = Math.floor(Math.random() * (100 - 2 + 1)) + 2; // 2 bis 100 inkl.
     const b = Math.floor(Math.random() * (a - 1)) + 1; // 1 <= b < a
 
-    // Insert to DOM
     $('#numA').text(a);
     $('#numB').text(b);
-
-    // Empty answer field
     $('#answer').val('');
+    $('#feedback').removeClass('show').text('');
   }
 
   // Generate first exercise
@@ -32,9 +48,11 @@ $(document).ready(function(){
         spread: 70,
         origin: { y: 0.7 }
       });
-      console.log('Richtig!');
+
+      const message = getRandomSuccessMessage();
+      $('#feedback').removeClass('error').addClass('success show').text(message);
     } else {
-      console.log('Versuche es nochmal.');
+      $('#feedback').removeClass('success').addClass('error show').text("Versuche es nochmal!");
     }
   });
 });
