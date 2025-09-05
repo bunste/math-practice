@@ -1,21 +1,3 @@
-const successMessages = [
-  "Super!",
-  "Klasse gemacht!",
-  "Richtig gut!",
-  "Bravo!",
-  "Toll gelöst!",
-  "Genau richtig!",
-  "Du hast es drauf!",
-  "Fantastisch!",
-  "Sehr gut!",
-  "Spitze!"
-];
-
-function getRandomSuccessMessage() {
-  const index = Math.floor(Math.random() * successMessages.length);
-  return successMessages[index];
-}
-
 $(document).ready(function(){
   function newExercise() {
     const a = Math.floor(Math.random() * (100 - 2 + 1)) + 2; // 2 bis 100 inkl.
