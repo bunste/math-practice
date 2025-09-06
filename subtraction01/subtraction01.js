@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  let successCounter = 0;
+  let countingEnabled = true;
+
   function newExercise() {
     const a = Math.floor(Math.random() * (100 - 2 + 1)) + 2; // 2 bis 100 inkl.
     const b = Math.floor(Math.random() * (a - 1)) + 1; // 1 <= b < a
@@ -6,7 +9,9 @@ $(document).ready(function(){
     $('#numA').text(a);
     $('#numB').text(b);
     $('#answer').val('');
-    $('#feedback').removeClass('show success error').text('');
+    $('#message').removeClass('show success error').text('');
+
+    countingEnabled = true;
   }
 
   // Generate first exercise
@@ -22,7 +27,7 @@ $(document).ready(function(){
     const answerStr = $('#answer').val().trim();
 
     if(answerStr === "") {
-      $('#feedback').removeClass('show success error').text('');
+      $('#message').removeClass('show success error').text('');
       return;
     }
 
@@ -39,9 +44,14 @@ $(document).ready(function(){
       });
 
       const message = getRandomSuccessMessage();
-      $('#feedback').removeClass('error').addClass('success show').text(message);
+      if (countingEnabled) {
+        successCounter += 1;
+        countingEnabled = false;
+      }
+      $('#message').removeClass('error').addClass('success show').text(message);
+      $('#counter').addClass('success show').text(successCounter);
     } else {
-      $('#feedback').removeClass('success').addClass('error show').text("Versuche es nochmal!");
+      $('#message').removeClass('success').addClass('error show').text("Versuche es nochmal!");
     }
   });
 });

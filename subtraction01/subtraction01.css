@@ -23,20 +23,27 @@
 }
 
 .feedback {
+  width: 100%;
+  min-height: 2rem;
+  margin-top: 1rem;
   font-size: 1.4rem;
   font-weight: bold;
-  margin-top: 1rem;
-  min-height: 2rem; /* Platz reservieren */
-  opacity: 0; /* unsichtbar standardmäßig */
+}
+.feedback .counter {
+  opacity: 0;
+  transition: opacity 0.4s; /* sanftes Ein-/Ausblenden */
+}
+.feedback .message {
+  opacity: 0;
   transition: opacity 0.4s; /* sanftes Ein-/Ausblenden */
   text-align: center;
 }
-.feedback.show {
+.feedback .show {
   opacity: 1;
 }
-.feedback.success {
+.feedback .success {
   color: #28a745;
 }
-.feedback.error {
+.feedback .error {
   color: #d9534f;
 }
